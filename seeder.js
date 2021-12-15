@@ -1,8 +1,10 @@
 import mongoose from 'mongoose'
 import connectDB from './config/db.js'
 import Pizza from './models/pizzaModel.js'
+import User from './models/userModel.js'
 import dotenv from 'dotenv'
 import {pizzas} from './data/pizzas.js'
+import users from './data/users.js'
 
 dotenv.config()
 connectDB()
