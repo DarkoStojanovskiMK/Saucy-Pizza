@@ -1,7 +1,8 @@
 import React from 'react'
-import {useSelector} from 'react-redux'
-import { Link } from 'react-router-dom'
-import { Navbar, Container, Nav, Badge } from 'react-bootstrap'
+import {useSelector, useDispatch} from 'react-redux'
+import { Navbar, Container, Nav, Badge,NavDropdown} from 'react-bootstrap'
+import {LinkContainer} from 'react-router-bootstrap'
+import { logout } from '../actions/userActions'
 
 
 
@@ -9,42 +10,60 @@ import { Navbar, Container, Nav, Badge } from 'react-bootstrap'
 
 
 const Header = () => {
-
+    const dispatch=useDispatch()
     const cartBasket = useSelector(state=>state.cartBasket)
     const {cartBasketNum} = cartBasket
-    // const [cartNum, setCartNum] = useState(null)
+
+    const userLogin = useSelector(state=>state.userLogin)
+    const {userInfo} = userLogin
+    
     const getCartNr = ()=>{
         const nr = cartBasketNum.reduce((cum, item)=>Number(item.num) + cum, 0)
         return nr
     } 
-    
+    const logoutHandler = ()=>{
+        dispatch(logout())
+    }
 
-    
 
     return (
         <header className='navbar-top'>
             <Navbar  variant='dark' expand='lg' collapseOnSelect>
                 <Container>
-                    <Link to='/'>
+                    <LinkContainer to='/'>
                         <Navbar.Brand>
                             Saucy Pizza
                         </Navbar.Brand>
-                    </Link>
+                    </LinkContainer>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className='ms-auto '>
-                            <Link to='/cart'>
-                                <i className='fas fa-shopping-cart'/> Cart <Badge pill bg bsPrefix='cartNr' >{getCartNr()}</Badge>
-                            </Link>
-                            <Link to='/pizzas'>
-                                Pizzas
-                            </Link>
-                            <Link to='/pizzas'>
-                                Contact
-                            </Link>
-                            <Link to='/pizzas'>
-                                About Us
-                            </Link>
+                            <LinkContainer to='/pizzas'>
+                               <Nav.Link>Pizzas</Nav.Link> 
+                            </LinkContainer>
+                            <LinkContainer to='/cart'>
+                                <Nav.Link><i className='fas fa-shopping-cart'/> Cart <Badge pill bg bsPrefix='cartNr' >{getCartNr()}</Badge></Nav.Link>
+                            </LinkContainer>
+                            {userInfo ? (
+                                <NavDropdown title={userInfo.name} id='username'>
+                                    <LinkContainer to='/profile'>
+                                        <NavDropdown.Item> Profile</NavDropdown.Item>
+                                    </LinkContainer>
+                                    <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                                </NavDropdown>
+                                ) : (
+                                <LinkContainer to='/login'>
+                                    <Nav.Link> Sign In </Nav.Link>
+                                </LinkContainer>)
+                            }
+                            {userInfo && userInfo.isAdmin && (
+                             <NavDropdown title='Admin' id='adminmenu'>
+                                <LinkContainer to='/admin/userList'>
+                                   <NavDropdown.Item>Users</NavDropdown.Item> 
+                                </LinkContainer>
+                               
+                            </NavDropdown>
+                            ) }
                             
                         </Nav>
                     </Navbar.Collapse>

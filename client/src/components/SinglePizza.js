@@ -8,7 +8,7 @@ const SinglePizza = ({pizza}) => {
    
   
     return (
-        <Card bsPrefix='singleCard' className='my-3 p-3 rounded'>
+        <Card bsPrefix='singleCard' className='my-3 p-3'>
             <Row>
                 <Col>
                     <Link to={`/pizza/${pizza._id}`}>

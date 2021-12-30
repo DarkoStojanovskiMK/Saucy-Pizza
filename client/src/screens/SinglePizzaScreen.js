@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { Card, Col,Container, Form, Image, ListGroup, Row, Button} from 'react-bootstrap'
+import { Card, Col, Form, ListGroup, Row, Button} from 'react-bootstrap'
 import { getSinglePizza } from '../actions/pizzaActions'
 import {useParams, useNavigate} from 'react-router-dom'
-import { GO_TO_CART } from '../types/cartTypes'
 import { addCartNumber } from '../actions/cartActions'
 
 const SinglePizzaScreen = () => {
@@ -15,10 +14,9 @@ const SinglePizzaScreen = () => {
     const {loading, pizza, error} = singlePizza
 
     useEffect(()=>{
-        console.log('dispatch');
-        
+
         dispatch(getSinglePizza(params.id))
-    },[])
+    },[dispatch, params.id])
     
     const submitHandler = (e)=>{
         e.preventDefault()
@@ -27,7 +25,7 @@ const SinglePizzaScreen = () => {
     }
 
     const goToCart = ()=>{
-        // dispatch({type:GO_TO_CART})
+        
         navigate('/cart')
     }
     return (

@@ -13,11 +13,20 @@ const importData = async()=>{
 
     try {
         await Pizza.deleteMany()
-        await Pizza.insertMany(pizzas)
+        await User.deleteMany()
+
+        const createdUsers = await User.insertMany(users)
+        const adminUser = createdUsers[0]._id
+
+        const samplePizzas = pizzas.map(pizza=>{
+            return {...pizza, user:adminUser}
+        })
+
+        await Pizza.insertMany(samplePizzas)
+
         console.log('Data Import Success')
         process.exit()
     } catch (error) {
-        console.log(error);
         
         console.error('Error with data import')
         process.exit(1)

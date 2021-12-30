@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import Header from '../components/Header'
+import React from 'react'
+
 import {useSelector, useDispatch} from 'react-redux'
 import {Card, Row,Col, ListGroup, Image, FormControl} from 'react-bootstrap'
 import { addCartNumber } from '../actions/cartActions'
@@ -12,7 +12,7 @@ import { REMOVE_FROM_CART } from '../types/cartTypes'
 const CartScreen = () => {
 
     const cartBasket = useSelector(state=>state.cartBasket)
-    const {cartBasketNum, loading} = cartBasket;
+    const {cartBasketNum} = cartBasket;
 
     const dispatch = useDispatch()
 

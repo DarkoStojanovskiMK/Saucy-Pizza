@@ -3,15 +3,29 @@ import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import { cartBasketReducer } from './reducers/cartReducers'
 import { allPizzasReducer, singlePizzaReducer } from './reducers/pizzaReducers'
+import { userDetailsReducer, userLoginReducer, userUpdateProfileReducer, userRegisterReducer, userListReducer, userDeleteReducer, userUpdateReducer, userByIdReducer } from './reducers/userReducers'
 
 const reducer = combineReducers({
     allPizzas:allPizzasReducer,
     singlePizza:singlePizzaReducer,
-    cartBasket:cartBasketReducer
+    cartBasket:cartBasketReducer,
+    userLogin:userLoginReducer,
+    userDetails:userDetailsReducer,
+    userUpdateProfile:userUpdateProfileReducer,
+    userRegister:userRegisterReducer,
+    userList:userListReducer,
+    userDelete:userDeleteReducer,
+    userById:userByIdReducer,
+    userUpdate:userUpdateReducer
+    
 
 })
+const localStorageUserInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
 const localStorageCartBasketNum =localStorage.getItem('cartBasketNum') ? JSON.parse(localStorage.getItem('cartBasketNum')) : []
-const initialState = {cartBasket:{cartBasketNum:localStorageCartBasketNum}}
+const initialState = {
+    cartBasket:{cartBasketNum:localStorageCartBasketNum},
+    userLogin:{userInfo:localStorageUserInfo}
+}
 const middleware = [thunk]
 
 const store =createStore(reducer, initialState,composeWithDevTools(applyMiddleware(...middleware)))
