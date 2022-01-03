@@ -16,7 +16,7 @@ const HomeScreen = () => {
                     <Row >
                         {pics.map(pic=>(
                             <Col className='d-flex justify-content-center' key={pic.id}>
-                                <Card  style={{color:'red'}}>
+                                <Card  style={{ color:'red'}}>
                                     <Card.Img  style={{width:'200px', height:'200px'}} variant='top'  src={pic.src} />
                                     <Card.Body>
                                         <Card.Title>{pic.text}</Card.Title>

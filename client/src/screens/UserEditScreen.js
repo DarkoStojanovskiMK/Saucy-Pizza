@@ -43,7 +43,7 @@ const UserEditScreen = () => {
     const handleSubmit = (e)=>{
         e.preventDefault()
         dispatch(updateUser({_id:params.id, name, email, isAdmin}))
-        console.log({_id:params.id, name, email, isAdmin});
+        
         
     }
 

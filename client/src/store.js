@@ -4,6 +4,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import { cartBasketReducer } from './reducers/cartReducers'
 import { allPizzasReducer, singlePizzaReducer } from './reducers/pizzaReducers'
 import { userDetailsReducer, userLoginReducer, userUpdateProfileReducer, userRegisterReducer, userListReducer, userDeleteReducer, userUpdateReducer, userByIdReducer } from './reducers/userReducers'
+import { orderCreateReducer } from './reducers/orderReducer'
 
 const reducer = combineReducers({
     allPizzas:allPizzasReducer,
@@ -16,7 +17,8 @@ const reducer = combineReducers({
     userList:userListReducer,
     userDelete:userDeleteReducer,
     userById:userByIdReducer,
-    userUpdate:userUpdateReducer
+    userUpdate:userUpdateReducer,
+    orderCreate:orderCreateReducer
     
 
 })

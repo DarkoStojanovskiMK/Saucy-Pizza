@@ -35,20 +35,20 @@ const SinglePizzaScreen = () => {
                 <Row>
                     
                     <Col md={6} >
-                        <Card className='p-3 m-3' bsPrefix='singleCard'>
+                        <Card className='p-3 m-3'>
                             <Card.Img src={pizza.image} alt={pizza.name}/>
                             <Card.Header><strong>{pizza.name}</strong></Card.Header>
-                            <ListGroup bsPrefix='singleCard'>
+                            <ListGroup >
                                 
-                                <ListGroup.Item bsPrefix='singleCard'>
+                                <ListGroup.Item >
                                    <strong>Ingredients:</strong> {pizza.ingredients}
                                     
                                 </ListGroup.Item>
-                                <ListGroup.Item bsPrefix='singleCard'>
+                                <ListGroup.Item >
                                     <strong>Pizza dough:</strong> {pizza.dough}
                                     
                                 </ListGroup.Item>
-                                <ListGroup.Item bsPrefix='singleCard'>
+                                <ListGroup.Item >
                                     <strong>Price:</strong> ${pizza.price}
                                 </ListGroup.Item>
                             </ListGroup>

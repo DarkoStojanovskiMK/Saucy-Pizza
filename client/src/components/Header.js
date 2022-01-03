@@ -18,7 +18,7 @@ const Header = () => {
     const {userInfo} = userLogin
     
     const getCartNr = ()=>{
-        const nr = cartBasketNum.reduce((cum, item)=>Number(item.num) + cum, 0)
+        const nr = cartBasketNum.reduce((sum, item)=>Number(item.num) + sum, 0)
         return nr
     } 
     const logoutHandler = ()=>{

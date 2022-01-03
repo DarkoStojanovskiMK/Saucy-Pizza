@@ -15,14 +15,9 @@ h1 {
 }
 
 a:link {
-  padding-left: 1rem;
+  
   text-decoration: none;
-  color: black
-}
-
-a {
-  color: black;
-
+  
 }
 
 main {
@@ -42,14 +37,6 @@ main {
   z-index: 10;
 
 }
-
-/* HomeScreen */
-
-
-
-
-
-/* navbar */
 
 .cartNr {
   background: white;
@@ -78,6 +65,15 @@ main {
 footer {
   background-color: rgb(60, 61, 60);
   height: 200px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+ul {
+  text-align: center;
+
+}
+ul li{
+  display: inline-block;
 }
 
-/* card */

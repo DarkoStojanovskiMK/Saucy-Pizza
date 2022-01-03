@@ -15,6 +15,10 @@ import ListUsersScreen from './screens/ListUsersScreen'
 import ErrorScreen from './screens/ErrorScreen'
 import AllPizzasScreen from './screens/AllPizzasScreen'
 import UserEditScreen from './screens/UserEditScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import OrderScreen from './screens/OrderScreen'
+import AboutScreen from './screens/AboutScreen'
+import ContactScreen from './screens/ContactScreen'
 
 
 function App() {
@@ -29,9 +33,13 @@ function App() {
               <Route path='/pizzas' element={<AllPizzasScreen/>} />
               <Route path='/pizza/:id' element={<SinglePizzaScreen/>} />
               <Route path='/cart' element={<CartScreen/>} />
+              <Route path='/placeOrder' element={<PlaceOrderScreen/>} />
               <Route path='/login' element={<LoginScreen/>} />
+              <Route path='/about' element={<AboutScreen/>} />
+              <Route path='/contact' element={<ContactScreen/>} />
               <Route path='/profile' element={<ProfileScreen/>} />
               <Route path='/register' element={<RegisterScreen/>} />
+              <Route path='/order/:id' element={<OrderScreen/>} />
               <Route path='/admin/userList' element={<ListUsersScreen/>} />
               <Route path='/admin/user/:id/edit' element={<UserEditScreen/>} />
               <Route path='/' element={<HomeScreen/>} />

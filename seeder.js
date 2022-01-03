@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 import connectDB from './config/db.js'
 import Pizza from './models/pizzaModel.js'
 import User from './models/userModel.js'
+import Order from './models/orderModel.js'
 import dotenv from 'dotenv'
 import {pizzas} from './data/pizzas.js'
 import users from './data/users.js'
@@ -14,6 +15,7 @@ const importData = async()=>{
     try {
         await Pizza.deleteMany()
         await User.deleteMany()
+        await Order.deleteMany()
 
         const createdUsers = await User.insertMany(users)
         const adminUser = createdUsers[0]._id

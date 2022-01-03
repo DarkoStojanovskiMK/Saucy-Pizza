@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Navbar, Container, Row, Col } from 'react-bootstrap'
+import { Container, Row} from 'react-bootstrap'
 
 
 const Footer = () => {
@@ -9,37 +9,20 @@ const Footer = () => {
                
                     <Container>
 
-                        <Row className='ms-auto'>
-                            <Navbar.Text >
-                                All Rights Reserved
-                            </Navbar.Text>
-                            <Col>
-                                <Link to='/pizzas'>
-                                    About
-                                </Link>
-                            </Col>
-                            <Col>
-                                <Link to='/pizzas'>
-                                    About
-                                </Link>
-                            </Col>
+                        <Row >
+                            <ul>
+                                <li><Link to='/about'>About Us</Link></li>
+                                <li style={{marginLeft:'1rem'}}><Link to='/contact'>Contact</Link></li>
+                            </ul>
+                        </Row>
+                        <Row >
+                            
+                                <p>All Rights Reserved &copy; 2022 Saucy Pizza</p>
+                            
+                            
                         </Row>
                         
-                        <Row>
-                            <Navbar.Text >
-                                All Rights Reserved
-                            </Navbar.Text>
-                            <Col>
-                                <Link to='/pizzas'>
-                                    About
-                                </Link>
-                            </Col>
-                            <Col>
-                                <Link to='/pizzas'>
-                                    About
-                                </Link>
-                            </Col>
-                        </Row>
+                        
                         
 
                     </Container>

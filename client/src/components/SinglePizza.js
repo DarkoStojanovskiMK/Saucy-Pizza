@@ -25,10 +25,10 @@ const SinglePizza = ({pizza}) => {
                             <strong>${pizza.price}</strong>
                             
                         </Card.Text>
-                        <Card.Text>
-                             <a href={`/pizza/${pizza._id}`}> see more </a>
+                        <Link to={`/pizza/${pizza._id}`}>
+                              see more
                             
-                        </Card.Text>
+                        </Link>
                     </Card.Body>
                 </Col>
             </Row>
