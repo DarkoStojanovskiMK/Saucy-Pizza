@@ -12,9 +12,9 @@ export const getAllPizzas = ()=> async(dispatch)=>{
 
     try {
         dispatch({type:GET_PIZZAS_REQUEST})
-
+        
         const {data} = await axios.get('/api/pizzas')
-        console.log(data);
+        
         dispatch({type:GET_PIZZAS_SUCCESS, payload:data})
     } catch (error) {
         console.log(error);

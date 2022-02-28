@@ -14,7 +14,7 @@ const orderSchema = mongoose.Schema({
             image:{type:String, required:true},
             num:{type:Number, required:true},
             price:{type:Number, required:true},
-            
+            pizza:{type:mongoose.Schema.Types.ObjectId, required:true, ref:'Pizza'}
 
         }
     ],

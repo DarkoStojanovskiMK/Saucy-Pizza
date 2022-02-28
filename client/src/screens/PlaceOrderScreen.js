@@ -21,8 +21,8 @@ const PlaceOrderScreen = () => {
     const orderCreate = useSelector(state=>state.orderCreate)
     const{success, order} = orderCreate
     
-
     const [shippingAddress, setShippingAddress] = useState('')
+    console.log(shippingAddress);
     
 
     useEffect(()=>{

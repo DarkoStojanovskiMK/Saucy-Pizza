@@ -27,8 +27,10 @@ const CartScreen = () => {
         return tPrice
     }
 
-    const removeFromCart = (id)=>{
-        dispatch({type:REMOVE_FROM_CART, payload:id})
+    const removeFromCart = (pizza)=>{
+        dispatch({type:REMOVE_FROM_CART, payload:pizza})
+        console.log(cartBasketNum);
+        
     }
 
     const placeOrder = ()=>{
@@ -45,7 +47,7 @@ const CartScreen = () => {
                 <Card>
                     <ListGroup variant='flush'  >
                         {cartBasketNum.map((item=>(
-                            <ListGroup.Item key={item.id} className='my-2'>
+                            <ListGroup.Item key={item.pizza} className='my-2'>
                                 <Row>
                                     <Col>
                                         <Image src={item.image} alt={item.name} fluid/>
@@ -68,7 +70,7 @@ const CartScreen = () => {
                                         </FormControl>
                                     </Col>
                                     <Col className='trash'>
-                                        <i className='fas fa-trash trashCan' onClick={()=>removeFromCart(item.id)}/>
+                                        <i className='fas fa-trash trashCan' onClick={()=>removeFromCart(item.pizza)}/>
                                     </Col>
                                 </Row>
                             </ListGroup.Item>

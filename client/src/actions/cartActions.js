@@ -10,7 +10,7 @@ export const addCartNumber = (pizzaId, num)=> async (dispatch, getState)=>{
     const item = await axios.get(`/api/pizzas/${pizzaId}`)
     const {data} = item
     dispatch({type:ADD_TO_CART, payload:{
-        id:data._id,
+        pizza:data._id,
         image:data.image,
         price:data.price,
         ingredients:data.ingredients,
